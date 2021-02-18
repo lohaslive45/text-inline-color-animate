@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #252839;
+}
+
+/*! 描出邊框*/
+h2 {
+  position: relative;
+  font-size: 11vw;
+  color: #252839;
+  -webkit-text-stroke: 0.3vw #383d52; /**描出字體外框 0.3vw*/
+  text-transform: uppercase;
+}
+
+/*todo 填滿字體內*/
+h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%; /*!控制 跑馬燈 亮起，100%全亮，50%亮一半*/
+  height: 100%;
+  color: #01fe87;
+  -webkit-text-stroke: 0vw #383d52; /**隱藏字體外框 0vw*/
+  border-right: 2px solid #01fe87; /**垂直引導光條*/
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
